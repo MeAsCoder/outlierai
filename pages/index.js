@@ -53,7 +53,7 @@ function Navbar() {
     
        {/* Logo */}
 <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
-  <img src="/handshakelogo.png" alt="Logo" style={{ height: 70, width: 'auto', objectFit: 'contain' }} />
+  <img src="/outlierm.png" alt="Logo" style={{ height: 70, width: 'auto', objectFit: 'contain' }} />
 </Link>
 
         {/* Desktop Nav */}
@@ -153,30 +153,30 @@ const faqs = [
   },
   {
     q: "What does the onboarding process look like?",
-    a: "HandShake AI's onboarding process typically takes 30 to 90 minutes and includes creating your account, selecting your areas of expertise, completing skill screenings so we can match you with the right projects, and identity verification to ensure we're building a trusted community. Once you complete general onboarding, you'll proceed to project-specific onboarding, which varies by project."
+    a: "Outlier AI's onboarding process typically takes 30 to 90 minutes and includes creating your account, selecting your areas of expertise, completing skill screenings so we can match you with the right projects, and identity verification to ensure we're building a trusted community. Once you complete general onboarding, you'll proceed to project-specific onboarding, which varies by project."
   },
   {
     q: "How long do projects last?",
     a: "Project lengths vary depending on the needs of our customers. Once you complete a project, you'll have the opportunity to join additional projects."
   },
   {
-    q: "What is HandShake AI?",
-    a: "HandShake AI is a platform that connects experts with leading AI companies to provide human feedback that improves language learning models (LLMs). We're committed to making AI smarter, safer, and more efficient — while providing contributors with meaningful, flexible earning opportunities."
+    q: "What is Outlier AI?",
+    a: "Outlier AI is a platform that connects experts with leading AI companies to provide human feedback that improves language learning models (LLMs). We're committed to making AI smarter, safer, and more efficient — while providing contributors with meaningful, flexible earning opportunities."
   },
   {
     q: "How much time should I expect to contribute?",
-    a: "Flexibility is one of our core values at HandShake AI, which means you choose when, where, and how much you contribute. Your earnings are based on the hours you contribute each week, and you maintain complete control over your schedule with no minimum hour requirements."
+    a: "Flexibility is one of our core values at Outlier AI, which means you choose when, where, and how much you contribute. Your earnings are based on the hours you contribute each week, and you maintain complete control over your schedule with no minimum hour requirements."
   },
   {
     q: "Can I refer friends or colleagues?",
-    a: "Absolutely! We welcome applications from qualified candidates and aim to provide everyone with the opportunity to contribute to the development of the next generation of AI models. We encourage referrals for candidates you can personally vouch for based on their expertise or professional experience. Once you've created an HandShake AI account, you'll be able to make referrals directly from your dashboard."
+    a: "Absolutely! We welcome applications from qualified candidates and aim to provide everyone with the opportunity to contribute to the development of the next generation of AI models. We encourage referrals for candidates you can personally vouch for based on their expertise or professional experience. Once you've created an Outlier AI account, you'll be able to make referrals directly from your dashboard."
   },
   {
     q: "What do I need to apply?",
     a: "To apply you'll need: a valid ID and mobile phone from your country of residence, a current resume highlighting your expertise, and a LinkedIn profile showing your educational background and work experience."
   },
   {
-    q: "What are contributors saying about HandShake AI?",
+    q: "What are contributors saying about Outlier AI?",
     a: "Contributors appreciate the flexibility, engaging projects, learning opportunities, strong community, and earning potential. Read the testimonials above to hear directly from our global community of earners."
   },
 ];
@@ -282,18 +282,18 @@ export default function Home() {
   // ============================================================================
 
   const testimonials = [
-    { name: "Sarah Johnson", role: "Freelance Designer", country: "🇺🇸 United States", content: "HandShake AI has completely transformed how I earn online. I made $1,200 in my first month completing simple tasks in my spare time!", earnings: "$1,200/mo" },
-    { name: "Wanjiru Kamau", role: "College Student", country: "🇰🇪 Kenya", content: "HandShake AI gives me flexibility to earn around $320/month between classes. It covers all my transport and food expenses!", earnings: "$320/mo" },
-    { name: "Emma Rodriguez", role: "Stay-at-Home Mom", country: "🇲🇽 Mexico", content: "I never thought I could earn real money from home. HandShake AI proved me wrong — $800 last month while taking care of my kids!", earnings: "$800/mo" },
+    { name: "Sarah Johnson", role: "Freelance Designer", country: "🇺🇸 United States", content: "Outlier AI has completely transformed how I earn online. I made $1,200 in my first month completing simple tasks in my spare time!", earnings: "$1,200/mo" },
+    { name: "Wanjiru Kamau", role: "College Student", country: "🇰🇪 Kenya", content: "Outlier AI gives me flexibility to earn around $320/month between classes. It covers all my transport and food expenses!", earnings: "$320/mo" },
+    { name: "Emma Rodriguez", role: "Stay-at-Home Mom", country: "🇲🇽 Mexico", content: "I never thought I could earn real money from home. Outlier AI proved me wrong — $800 last month while taking care of my kids!", earnings: "$800/mo" },
     { name: "Kipchoge Mutai", role: "Freelance Writer", country: "🇰🇪 Kenya", content: "I complete AI data labeling and text review tasks every evening. Earning consistently has helped me save for my own business!", earnings: "$450/mo" },
-    { name: "Priya Patel", role: "Digital Nomad", country: "🇮🇳 India", content: "I travel full-time and HandShake AI provides consistent income anywhere. Made $1,500 last month from beaches in Goa!", earnings: "$1,500/mo" },
+    { name: "Priya Patel", role: "Digital Nomad", country: "🇮🇳 India", content: "I travel full-time and Outlier AI provides consistent income anywhere. Made $1,500 last month from beaches in Goa!", earnings: "$1,500/mo" },
     { name: "Akinyi Otieno", role: "Graphic Designer", country: "🇰🇪 Kenya", content: "The image annotation and AI feedback tasks are perfect for someone with a design background. Steady income daily.", earnings: "$380/mo" },
-    { name: "Carlos Mendez", role: "Part-Time Worker", country: "🇨🇴 Colombia", content: "HandShake AI helped me cover rent when I was between jobs. Earned $1,100 last month working just 10–15 hours per week!", earnings: "$1,100/mo" },
+    { name: "Carlos Mendez", role: "Part-Time Worker", country: "🇨🇴 Colombia", content: "Outlier AI helped me cover rent when I was between jobs. Earned $1,100 last month working just 10–15 hours per week!", earnings: "$1,100/mo" },
     { name: "Fatuma Noor", role: "Teacher", country: "🇰🇪 Kenya", content: "After school hours, I do translation and survey tasks. This platform gave me a reliable second income.", earnings: "$290/mo" },
-    { name: "Aisha Bah", role: "Entrepreneur", country: "🇳🇬 Nigeria", content: "I use HandShake AI to fund my startup. Consistent $1,800/month gives me financial runway to build my dream!", earnings: "$1,800/mo" },
+    { name: "Aisha Bah", role: "Entrepreneur", country: "🇳🇬 Nigeria", content: "I use Outlier AI to fund my startup. Consistent $1,800/month gives me financial runway to build my dream!", earnings: "$1,800/mo" },
     { name: "Thomas O'Reilly", role: "Retail Worker", country: "🇮🇪 Ireland", content: "This side hustle pays more than I expected! $2,300 last month — I'm putting it all towards buying my first home.", earnings: "$2,300/mo" },
     { name: "Yuki Tanaka", role: "Software Engineer", country: "🇯🇵 Japan", content: "I complete AI model feedback tasks in my free time. The technical tasks pay well and match my background perfectly.", earnings: "$950/mo" },
-    { name: "Lerato Dlamini", role: "Marketing Graduate", country: "🇿🇦 South Africa", content: "I was job hunting and HandShake AI bridged the gap. Survey and content tasks are simple and payouts are reliable.", earnings: "$410/mo" },
+    { name: "Lerato Dlamini", role: "Marketing Graduate", country: "🇿🇦 South Africa", content: "I was job hunting and Outlier AI bridged the gap. Survey and content tasks are simple and payouts are reliable.", earnings: "$410/mo" },
   ];
 
   const taskCategories = [
@@ -386,7 +386,7 @@ export default function Home() {
             The Future of Flexible Work
           </p>
           <h1 className="hero-title" style={{ fontSize: 58, fontFamily: "'Sora', sans-serif", fontWeight: 800, lineHeight: 1.1, letterSpacing: '-1.5px', marginBottom: 24, color: '#0d0d0d' }}>
-            HandShake AI connects human brilliance with artificial intelligence
+            Outlier AI connects human brilliance with artificial intelligence
           </h1>
           <p style={{ fontSize: 18, color: '#555', maxWidth: 560, margin: '0 auto 48px', lineHeight: 1.7 }}>
             We pay thousands of contributors to train AI models and make them smarter, safer, and more reliable.
@@ -443,9 +443,9 @@ export default function Home() {
       <section id="about" style={{ padding: '100px 24px', background: '#fff' }}>
         <div style={{ maxWidth: 800, margin: '0 auto', textAlign: 'center' }}>
           <p style={{ color: '#E8541A', fontSize: 12, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 20 }}>OUR VISION</p>
-          <h2 style={{ fontSize: 44, fontFamily: "'Sora', sans-serif", fontWeight: 800, letterSpacing: '-1px', marginBottom: 40, lineHeight: 1.2 }}>Why we built HandShake AI</h2>
+          <h2 style={{ fontSize: 44, fontFamily: "'Sora', sans-serif", fontWeight: 800, letterSpacing: '-1px', marginBottom: 40, lineHeight: 1.2 }}>Why we built Outlier AI</h2>
           <p style={{ fontSize: 18, color: '#444', lineHeight: 1.8, marginBottom: 24 }}>
-            HandShake AI is <strong>committed to making AI more knowledgeable, accurate, and impactful</strong> — all while providing individuals with meaningful and accessible job opportunities.
+            Outlier AI is <strong>committed to making AI more knowledgeable, accurate, and impactful</strong> — all while providing individuals with meaningful and accessible job opportunities.
           </p>
           <p style={{ fontSize: 18, color: '#444', lineHeight: 1.8 }}>
             We&apos;ve built a <strong>best-in-class remote work platform for our contributors</strong> to provide valuable, specialized skills, and we strive to deliver a positive experience built on reliability, transparency, and flexibility.
@@ -664,7 +664,7 @@ export default function Home() {
 
         {/* Logo */}
         <div style={{ marginBottom: 8, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-  <img src="/handshakelogo.png" alt="Logo" style={{ height: 75, width: 'auto', objectFit: 'contain' }} />
+  <img src="/outlierm.png" alt="Logo" style={{ height: 75, width: 'auto', objectFit: 'contain' }} />
 </div>
         <p style={{ marginBottom: 36, color: '#E8541A', fontSize: 11, fontWeight: 700, letterSpacing: '0.3em', fontFamily: "'DM Sans', sans-serif" }}>
           EARN · FLEX · GROW
@@ -698,7 +698,7 @@ export default function Home() {
 
         {/* Copyright */}
         <p style={{ fontSize: 13, color: '#999', fontFamily: "'DM Sans', sans-serif" }}>
-          © {new Date().getFullYear()} HandShake AI. All rights reserved.
+          © {new Date().getFullYear()} Outlier AI. All rights reserved.
         </p>
       </footer>
     </div>

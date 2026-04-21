@@ -8,7 +8,7 @@ const fadeIn = {
   visible:  { opacity: 1, y: 0 }
 }
 
-export default function Layout({ children, title = "HandShake AI - Earn Money Online" }) {
+export default function Layout({ children, title = "Outlier AI - Earn Money Online" }) {
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: '#fafafa', fontFamily: "'DM Sans', sans-serif" }}>
       <style>{`
@@ -87,8 +87,7 @@ export default function Layout({ children, title = "HandShake AI - Earn Money On
             {/* Brand column */}
             <div style={{ gridColumn: 'span 1' }}>
               <div style={{ display: 'flex', alignItems: 'center', marginBottom: 12 }}>
-                <span style={{ fontFamily: "'Sora', sans-serif", fontWeight: 800, fontSize: 22, color: '#111', letterSpacing: '-0.5px' }}>Earn</span>
-                <span style={{ fontFamily: "'Sora', sans-serif", fontWeight: 800, fontSize: 22, color: '#E8541A', letterSpacing: '-0.5px', fontStyle: 'italic' }}>Flex</span>
+                <span style={{ fontFamily: "'Sora', sans-serif", fontWeight: 800, fontSize: 22, color: '#E8541A', letterSpacing: '-0.5px' }}>Outlier AI</span>
               </div>
               <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.3em', color: '#E8541A', marginBottom: 14 }}>EARN · FLEX · GROW</p>
               <p style={{ fontSize: 14, color: '#888', lineHeight: 1.7, maxWidth: 220 }}>
@@ -193,7 +192,7 @@ export default function Layout({ children, title = "HandShake AI - Earn Money On
           {/* Bottom bar */}
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12 }}>
             <p style={{ fontSize: 13, color: '#bbb', margin: 0 }}>
-              © {new Date().getFullYear()} HandShake AI. All rights reserved.
+              © {new Date().getFullYear()} Outlier AI. All rights reserved.
             </p>
             <div style={{ display: 'flex', gap: 20 }}>
               {[

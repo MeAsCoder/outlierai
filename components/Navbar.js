@@ -181,8 +181,8 @@ function LogoMark() {
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
       <Image
-        src="/handshakelogo.png"
-        alt="HandShake AI Logo"
+        src="/outlierm.png"
+        alt="Outlier AI Logo"
         width={100}
         height={70}
         style={{ objectFit: 'contain' }}
