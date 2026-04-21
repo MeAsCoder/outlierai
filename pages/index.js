@@ -276,7 +276,7 @@ export default function Home() {
 
   // ========== REPLACE WITH YOUR ACTUAL PLAY STORE LINK AND APP ICON ==========
   // Replace this URL with your real Google Play Store link
-  const PLAYSTORE_URL = "https://play.google.com/store/apps/details?id=com.payingsurveys.instanttompesa";
+  const PLAYSTORE_URL = "https://play.google.com/store/apps/details?id=com.onlinejobskenya.surveys";
   // Optional: If you have a custom app icon image, uncomment and use it inside the button
   // const APP_ICON_URL = "/your-app-icon.png";
   // ============================================================================
