@@ -174,7 +174,7 @@ function TransactionFlow() {
       '+254770', '+254771'            // Telkom
     ];
 
-    const amounts = [2500, 3500, 4500, 5500, 6500, 7500, 8500, 9500];
+    const amounts = [2500, 3500, 4500, 5500, 6500, 7500, 8500, 9500, 3500, 3000, 4000, 6000, 8000];
 
     // ✅ Proper masked phone generator
     const generateMaskedPhone = () => {
@@ -235,21 +235,15 @@ function TransactionFlow() {
             boxShadow: '0 2px 8px rgba(0,0,0,0.2)',
             fontFamily: "'DM Sans', sans-serif",
           }}>
-            <span style={{
-              background: '#E8541A',
-              color: '#fff',
-              padding: '4px 12px',
-              borderRadius: 30,
-              fontSize: 13,
-              fontWeight: 800,
-              fontFamily: "'Sora', sans-serif",
-            }}>
-              {tx.amount.toLocaleString()} KSh
-            </span>
+                 
 
-            <span style={{ color: '#ff6b3d', fontSize: 16, fontWeight: 600 }}>
-              →
-            </span>
+<span style={{ background: '#E8541A', color: '#fff', padding: '4px 12px', borderRadius: 30, fontSize: 13, fontWeight: 800, fontFamily: "'Sora', sans-serif" }}>
+  Paid {tx.amount.toLocaleString()} KSh
+</span>
+<span style={{ color: '#ff6b3d', fontSize: 16, fontWeight: 600 }}> → </span>
+
+
+
 
             <span style={{ 
               color: '#e0e0e0', 
@@ -313,7 +307,7 @@ function AppDownloadSection() {
           width: 56,
           height: 56,
           borderRadius: 16,
-          background: '#22c55e',
+          background: '#E8541A',      // changed from green to orange
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -324,7 +318,7 @@ function AppDownloadSection() {
             position: 'absolute',
             inset: 0,
             borderRadius: 16,
-            background: '#22c55e',
+            background: '#E8541A',    // changed from green to orange
             filter: 'blur(14px)',
             opacity: 0.6,
           }} />
@@ -355,12 +349,12 @@ function AppDownloadSection() {
               gap: 1,
               padding: 2
             }}>
-              {/* Fake app icons */}
+              {/* Fake app icons - now all orange */}
               {Array.from({ length: 9 }).map((_, i) => (
                 <div key={i} style={{
                   width: '100%',
                   height: '100%',
-                  background: i % 2 === 0 ? '#E8541A' : '#22c55e',
+                  background: '#E8541A',   // all icons orange (previously green on odd indices)
                   borderRadius: 1
                 }} />
               ))}
