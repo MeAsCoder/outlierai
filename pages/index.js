@@ -30,6 +30,7 @@ const icons = {
   bell: "M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0",
   shield: "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z",
   zap: "M13 2L3 14h9l-1 8 10-12h-9l1-8z",
+  mpessa: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15h-2v-2h2v2zm0-4h-2V7h2v6z",
 };
 
 // ─── Navbar ───────────────────────────────────────────────────────────────────
@@ -148,33 +149,53 @@ function AutoScrollTrack({ items, renderItem, speed = 40, reverse = false }) {
 
 // ─── Transaction Flow Component ───────────────────────────────────────────────
 function TransactionFlow() {
-  // Generate random transaction data
+  // Generate random transaction data with KES and rounded numbers ending with 00
   const generateTransactions = () => {
     const comments = [
-      '🎉 Another satisfied client!',
-      '⭐ Highest paid this week!',
-      '💎 Premium task completed',
-      '🚀 Fastest payout ever!',
-      '🏆 Top earner bonus!',
-      '✨ Weekend special reward',
-      '🔥 Hot streak bonus!',
-      '📊 Data labeling expert',
-      '🤖 AI training completed',
-      '💪 Consistent earner!',
-      '🎯 Perfect accuracy bonus',
-      '🌟 Super contributor!'
+      'Another satisfied member',
+      'Highest paid this week!',
+      '⭐ Top earner bonus!',
+      'Daily task completed',
+      'Weekly reward payout',
+      'Survey bonus added',
+      'Referral earnings',
+      'Special achievement',
+      'Perfect score bonus',
+      'Early bird reward'
     ];
-    
-    const phonePrefixes = ['+2547', '+2541', '+2542', '+2545', '+2546', '+2547', '+2547', '+2547'];
-    
+
+    // More realistic Kenyan prefixes
+    const phonePrefixes = [
+      '+254700', '+254701', '+254702', '+254703',
+      '+254704', '+254705', '+254706', '+254707',
+      '+254708', '+254709', // Safaricom
+      '+254710', '+254711', '+254712',
+      '+254730', '+254731', '+254732', // Airtel
+      '+254770', '+254771'            // Telkom
+    ];
+
+    const amounts = [2500, 3500, 4500, 5500, 6500, 7500, 8500, 9500];
+
+    // ✅ Proper masked phone generator
+    const generateMaskedPhone = () => {
+      const prefix = phonePrefixes[Math.floor(Math.random() * phonePrefixes.length)];
+
+      const lastThree = Math.floor(Math.random() * 1000)
+        .toString()
+        .padStart(3, '0');
+
+      return `${prefix}***${lastThree}`;
+    };
+
     const transactions = [];
-    for (let i = 0; i < 20; i++) {
-      const amount = Math.floor(Math.random() * (9500 - 5000 + 1) + 5000);
+    for (let i = 0; i < 25; i++) {
+      const amount = amounts[Math.floor(Math.random() * amounts.length)];
       const comment = comments[Math.floor(Math.random() * comments.length)];
-      const phone = phonePrefixes[Math.floor(Math.random() * phonePrefixes.length)] + 
-                    Math.floor(Math.random() * 900000) + 100000;
+      const phone = generateMaskedPhone();
+
       transactions.push({ amount, comment, phone });
     }
+
     return transactions;
   };
 
@@ -183,7 +204,7 @@ function TransactionFlow() {
   return (
     <div style={{ 
       background: 'linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%)',
-      padding: '16px 0',
+      padding: '12px 0',
       borderBottom: '2px solid rgba(232,84,26,0.3)',
       position: 'relative',
       overflow: 'hidden'
@@ -197,49 +218,62 @@ function TransactionFlow() {
         background: 'linear-gradient(90deg, transparent, #E8541A, #ff6b3d, #E8541A, transparent)',
         animation: 'shimmer 2s infinite',
       }} />
+      
       <AutoScrollTrack
         items={transactions}
-        speed={30}
+        speed={25}
         renderItem={(tx) => (
           <div style={{
             background: 'rgba(255,255,255,0.08)',
             backdropFilter: 'blur(10px)',
             borderRadius: 40,
-            padding: '10px 20px',
+            padding: '8px 18px',
             display: 'inline-flex',
             alignItems: 'center',
-            gap: 12,
+            gap: 10,
             border: '1px solid rgba(232,84,26,0.3)',
             boxShadow: '0 2px 8px rgba(0,0,0,0.2)',
+            fontFamily: "'DM Sans', sans-serif",
           }}>
             <span style={{
               background: '#E8541A',
               color: '#fff',
               padding: '4px 12px',
               borderRadius: 30,
-              fontSize: 14,
+              fontSize: 13,
               fontWeight: 800,
               fontFamily: "'Sora', sans-serif",
             }}>
-              PAID {tx.amount.toLocaleString()} K
+              {tx.amount.toLocaleString()} KSh
             </span>
-            <span style={{ color: '#ff6b3d', fontSize: 18 }}>→</span>
-            <span style={{ color: '#ccc', fontSize: 13, fontWeight: 500, fontFamily: "'DM Sans', sans-serif" }}>
+
+            <span style={{ color: '#ff6b3d', fontSize: 16, fontWeight: 600 }}>
+              →
+            </span>
+
+            <span style={{ 
+              color: '#e0e0e0', 
+              fontSize: 13, 
+              fontWeight: 500, 
+              letterSpacing: '0.5px' 
+            }}>
               {tx.phone}
             </span>
+
             <span style={{ 
               color: '#4ade80', 
               fontSize: 12, 
-              fontWeight: 600,
+              fontWeight: 500,
               background: 'rgba(74,222,128,0.1)',
-              padding: '4px 10px',
+              padding: '3px 10px',
               borderRadius: 20,
             }}>
-              {tx.comment}
+              • {tx.comment}
             </span>
           </div>
         )}
       />
+
       <style>{`
         @keyframes shimmer {
           0% { transform: translateX(-100%); }
@@ -250,138 +284,148 @@ function TransactionFlow() {
   );
 }
 
-// ─── Phone App Download Feature ───────────────────────────────────────────────
-function PhoneAppDownload() {
+// ─── App Download Feature (exactly as per image) ───────────────────────────────
+function AppDownloadSection() {
   const PLAYSTORE_URL = "https://play.google.com/store/apps/details?id=com.onlinejobskenya.surveys";
-  
-  const features = [
-    { icon: icons.shield, text: "Encrypted", color: "#10b981" },
-    { icon: icons.zap, text: "Instant Payouts", color: "#f59e0b" },
-    { icon: icons.star, text: "4.9/5 Rating", color: "#E8541A" },
-  ];
 
   return (
     <div style={{
-      background: 'linear-gradient(135deg, #fff 0%, #fef7f2 100%)',
-      borderRadius: 32,
-      padding: '32px',
-      boxShadow: '0 20px 40px rgba(0,0,0,0.1)',
-      border: '1px solid rgba(232,84,26,0.2)',
-      maxWidth: 320,
-      position: 'relative',
+      width: '100%',
+      display: 'flex',
+      justifyContent: 'center',
+      marginTop: 20
     }}>
-      {/* Phone Mockup */}
       <div style={{
-        background: '#1a1a2e',
-        borderRadius: 40,
-        padding: '12px',
-        marginBottom: 24,
-        boxShadow: '0 10px 30px rgba(0,0,0,0.2)',
-        position: 'relative',
+        width: '100%',
+        maxWidth: 420,
+        background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)',
+        borderRadius: 20,
+        padding: '18px 16px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        boxShadow: '0 10px 25px rgba(0,0,0,0.25)',
       }}>
-        {/* Phone notch */}
+        
+        {/* LEFT: Phone UI */}
         <div style={{
-          position: 'absolute',
-          top: 8,
-          left: '50%',
-          transform: 'translateX(-50%)',
-          width: 120,
-          height: 25,
-          background: '#1a1a2e',
-          borderRadius: '0 0 20px 20px',
-          zIndex: 2,
-        }} />
-        <div style={{
-          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-          borderRadius: 32,
-          padding: '20px',
-          minHeight: 280,
+          position: 'relative',
+          width: 56,
+          height: 56,
+          borderRadius: 16,
+          background: '#22c55e',
           display: 'flex',
-          flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          textAlign: 'center',
         }}>
-          <Icon d={icons.bell} size={32} style={{ color: '#fff', marginBottom: 12 }} />
-          <div style={{ color: '#fff', fontSize: 18, fontWeight: 700, marginBottom: 4 }}>
-            Download Our
+          
+          {/* Glow */}
+          <div style={{
+            position: 'absolute',
+            inset: 0,
+            borderRadius: 16,
+            background: '#22c55e',
+            filter: 'blur(14px)',
+            opacity: 0.6,
+          }} />
+
+          {/* Phone Body */}
+          <div style={{
+            position: 'relative',
+            width: 24,
+            height: 34,
+            borderRadius: 6,
+            background: '#0f172a',
+            border: '2px solid #fff',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            padding: 2,
+            zIndex: 2
+          }}>
+            
+            {/* Screen */}
+            <div style={{
+              width: '100%',
+              height: 22,
+              background: '#1e293b',
+              borderRadius: 3,
+              display: 'grid',
+              gridTemplateColumns: 'repeat(3, 1fr)',
+              gap: 1,
+              padding: 2
+            }}>
+              {/* Fake app icons */}
+              {Array.from({ length: 9 }).map((_, i) => (
+                <div key={i} style={{
+                  width: '100%',
+                  height: '100%',
+                  background: i % 2 === 0 ? '#E8541A' : '#22c55e',
+                  borderRadius: 1
+                }} />
+              ))}
+            </div>
+
+            {/* Home Button */}
+            <div style={{
+              marginTop: 2,
+              width: 6,
+              height: 2,
+              borderRadius: 2,
+              background: '#ccc'
+            }} />
           </div>
-          <div style={{ color: '#fff', fontSize: 24, fontWeight: 800, marginBottom: 8, fontFamily: "'Sora', sans-serif" }}>
-            App
+        </div>
+
+        {/* MIDDLE: Text */}
+        <div style={{
+          flex: 1,
+          marginLeft: 14,
+        }}>
+          <div style={{
+            color: '#fff',
+            fontSize: 16,
+            fontWeight: 800,
+            fontFamily: "'Sora', sans-serif",
+            marginBottom: 2
+          }}>
+            Download Our App
           </div>
-          <div style={{ color: 'rgba(255,255,255,0.9)', fontSize: 12, marginBottom: 20 }}>
+          <div style={{
+            color: '#cbd5f5',
+            fontSize: 13,
+            fontWeight: 500
+          }}>
             Get instant notifications
           </div>
-          <div style={{ display: 'flex', gap: 8, marginBottom: 16 }}>
-            {features.map((feat, idx) => (
-              <div key={idx} style={{
-                background: 'rgba(255,255,255,0.2)',
-                borderRadius: 20,
-                padding: '4px 12px',
-                fontSize: 10,
-                fontWeight: 600,
-                color: '#fff',
-                display: 'flex',
-                alignItems: 'center',
-                gap: 4,
-              }}>
-                <Icon d={feat.icon} size={10} />
-                <span>{feat.text}</span>
-              </div>
-            ))}
-          </div>
-          <a
-            href={PLAYSTORE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              background: '#fff',
-              color: '#E8541A',
-              padding: '10px 24px',
-              borderRadius: 40,
-              fontSize: 14,
-              fontWeight: 700,
-              textDecoration: 'none',
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 8,
-              transition: 'all 0.2s',
-            }}
-            onMouseEnter={(e) => {
-              e.target.style.transform = 'scale(1.05)';
-              e.target.style.boxShadow = '0 4px 12px rgba(0,0,0,0.2)';
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.transform = 'scale(1)';
-              e.target.style.boxShadow = 'none';
-            }}
-          >
-            <Icon d={icons.smartphone} size={14} />
-            <span>Get App</span>
-          </a>
         </div>
-      </div>
-      
-      {/* Features below phone */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', gap: 12 }}>
-        {features.map((feat, idx) => (
-          <div key={idx} style={{ textAlign: 'center', flex: 1 }}>
-            <div style={{ 
-              width: 36, 
-              height: 36, 
-              borderRadius: '50%', 
-              background: `${feat.color}15`,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              margin: '0 auto 8px',
-              color: feat.color
-            }}>
-              <Icon d={feat.icon} size={16} />
-            </div>
-            <div style={{ fontSize: 11, fontWeight: 600, color: '#555' }}>{feat.text}</div>
-          </div>
-        ))}
+
+        {/* RIGHT: Button */}
+        <a
+          href={PLAYSTORE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            background: '#fff',
+            color: '#0f172a',
+            padding: '10px 18px',
+            borderRadius: 999,
+            fontSize: 13,
+            fontWeight: 700,
+            textDecoration: 'none',
+            whiteSpace: 'nowrap',
+            transition: 'all 0.2s ease',
+          }}
+          onMouseEnter={(e) => {
+            e.target.style.transform = 'scale(1.05)';
+          }}
+          onMouseLeave={(e) => {
+            e.target.style.transform = 'scale(1)';
+          }}
+        >
+          Get App
+        </a>
+
       </div>
     </div>
   );
@@ -596,32 +640,40 @@ export default function Home() {
       <TransactionFlow />
 
       {/* ── Hero ── */}
-      <section className="hero-grad" style={{ padding: '80px 24px 80px', textAlign: 'center' }}>
+      <section className="hero-grad" style={{ padding: '60px 24px 80px', textAlign: 'center' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto', display: 'flex', flexDirection: 'row', alignItems: 'center', gap: 60, flexWrap: 'wrap', justifyContent: 'center' }}>
           {/* Left side: Text content */}
-          <div style={{ flex: 1, minWidth: 280, textAlign: 'left' }}>
-            <p style={{ color: '#E8541A', fontSize: 12, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 24 }}>
-              The Future of Flexible Work
-            </p>
-            <h1 className="hero-title" style={{ fontSize: 52, fontFamily: "'Sora', sans-serif", fontWeight: 800, lineHeight: 1.1, letterSpacing: '-1.5px', marginBottom: 24, color: '#0d0d0d' }}>
-              Outlier AI connects human brilliance with artificial intelligence
-            </h1>
-            <p style={{ fontSize: 18, color: '#555', maxWidth: 560, marginBottom: 48, lineHeight: 1.7 }}>
-              We pay thousands of contributors to train AI models and make them smarter, safer, and more reliable.
-            </p>
-            <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
-              <Link href="/tasks" className="cta-btn" style={{ padding: '14px 36px', borderRadius: 50, background: '#E8541A', color: '#fff', fontSize: 16, fontWeight: 700, textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 8 }}>
-                Get Started Now <Icon d={icons.arrowRight} size={18} />
-              </Link>
-              <Link href="#about" className="outline-btn" style={{ padding: '14px 36px', borderRadius: 50, border: '1.5px solid #222', color: '#222', fontSize: 16, fontWeight: 600, textDecoration: 'none' }}>
-                Learn More
-              </Link>
+          <div style={{ flex: 1, minWidth: 280, textAlign: 'center' }}>
+            <div style={{ maxWidth: 500, margin: '0 auto' }}>
+              <div style={{ 
+                background: 'rgba(232,84,26,0.1)',
+                display: 'inline-block',
+                padding: '6px 16px',
+                borderRadius: 30,
+                marginBottom: 24,
+              }}>
+              <span style={{ fontSize: 20, fontWeight: 700, letterSpacing: '0.5px' }}>
+              <span style={{ color: 'black' }}>Earn Real Money</span>
+              <span style={{ color: '#E8541A' }}> with AI Surveys</span>
+              </span>
+              </div>
+              <p style={{ fontSize: 13, color: '#555', marginBottom: 16, lineHeight: 1.6 }}>
+                Join the most trusted survey community in Kenya. Complete tasks and get paid instantly to your M-Pesa.
+              </p>
+              <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap', marginTop: 24 }}>
+                <Link href="/tasks" className="cta-btn" style={{ padding: '14px 28px', borderRadius: 50, background: '#E8541A', color: '#fff', fontSize: 15, fontWeight: 700, textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 8 }}>
+                  Get Started for Free → <Icon d={icons.arrowRight} size={16} />
+                </Link>
+                <Link href="/auth/login" className="outline-btn" style={{ padding: '14px 28px', borderRadius: 50, border: '1.5px solid #222', color: '#222', fontSize: 15, fontWeight: 600, textDecoration: 'none' }}>
+                  Already a member? Sign In
+                </Link>
+              </div>
             </div>
           </div>
           
-          {/* Right side: Phone App Download Feature */}
+          {/* Right side: App Download Feature (exactly as per image) */}
           <div style={{ flex: 1, minWidth: 280, display: 'flex', justifyContent: 'center' }}>
-            <PhoneAppDownload />
+            <AppDownloadSection />
           </div>
         </div>
       </section>
